@@ -50,23 +50,60 @@
 <div style="text-align: center; margin: 20px 0;"><p style="font-size: 14px; color: #555;">[Reference Image]</p><img src="https://external-preview.redd.it/butterfly-on-a-dogs-nose-v0-WjCnZwapkXcFldd7GE7v1-T-1idubkGGHMSrjqh6rhk.jpeg?auto=webp&s=97987d2afa5fc710cac47a2c4e571c58f1f4ce25" alt="Sami's Reference Pick" width="380" style="border-radius: 8px; margin: 5px;"></div>
 </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<style>
+/* This simple CSS animation handles the falling motion and rotation */
+@keyframes fall {
+  0% { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(360deg); opacity: 0; }
+}
+.confetti-piece {
+  position: fixed;
+  top: 0;
+  animation: fall 3s linear forwards;
+  pointer-events: none;
+  z-index: 9999;
+}
+</style>
+
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 let hasFired = false;
-const customColors = ['#00aa00', '#0066cc', '#111111', '#aaccff'];
+const colors = ['#00aa00', '#0066cc', '#111111', '#aaccff'];
+
+function launch() {
+
+for (let i = 0; i < 100; i++) {
+const p = document.createElement('div');
+p.className = 'confetti-piece';
+      
+p.style.width = (Math.random() * 10 + 5) + 'px';
+p.style.height = (Math.random() * 10 + 5) + 'px';
+ p.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+p.style.left = (Math.random() * 100) + 'vw';
+      
+ p.style.animationDelay = (Math.random() * 2) + 's';
+
+document.body.appendChild(p);
+
+setTimeout(() => { p.remove(); }, 5000);
+}
+}
+
+
 window.addEventListener("scroll", () => {
-const scrollPosition = window.innerHeight + window.scrollY;
-const pageHeight = document.documentElement.scrollHeight;
-if (scrollPosition >= pageHeight - 5 && !hasFired) {
+const currentScroll = window.innerHeight + window.scrollY;
+const totalPageHeight = document.documentElement.scrollHeight;
+    
+   
+if (currentScroll >= totalPageHeight * 0.90 && !hasFired) {
 hasFired = true;
-confetti({particleCount: 100, angle: 60, spread: 60, origin: { x: 0, y: 0.85 }, colors: customColors});
-confetti({particleCount: 100, angle: 120, spread: 60, origin: { x: 1, y: 0.85 }, colors: customColors});
-setTimeout(() => { confetti({particleCount: 50, startVelocity: 15, spread: 360, origin: { x: 0.5, y: 0.4 }, colors: customColors}); }, 250);
+launch();
 }
 });
 });
 </script>
+</body>
+</html>
 </body>
 </html>
 </html>
