@@ -2,9 +2,8 @@ body {
   background-image: url("https://i.ytimg.com/vi/DBhs676nka4/maxresdefault.jpg");
 background-size: cover; background-position: center; background-repeat: no-repeat;    
 background-attachment: fixed; color: #00aa00; font-family: sans-serif; padding: 20px;
-  cursor: url('jpg.cur'), auto;
+cursor: url('jpg.cur'), auto;
 }
-        
 .content-box {max-width: 800px;margin: 0 auto;background-color: rgba(255, 255, 255, 0.85); padding: 30px; border-radius: 12px; box-shadow: 0 8px 16px rgba(0,0,0,0.5);}
 
  h1{color: #000000; margin-top: 20px;}
