@@ -49,8 +49,24 @@
 <p style="text-align: center; color: #111111;"><strong>3. Creator:</strong> Sami a 6ft demon that benches 500 tons saving humanity and super jack.</p> 
 <div style="text-align: center; margin: 20px 0;"><p style="font-size: 14px; color: #555;">[Reference Image]</p><img src="https://external-preview.redd.it/butterfly-on-a-dogs-nose-v0-WjCnZwapkXcFldd7GE7v1-T-1idubkGGHMSrjqh6rhk.jpeg?auto=webp&s=97987d2afa5fc710cac47a2c4e571c58f1f4ce25" alt="Sami's Reference Pick" width="380" style="border-radius: 8px; margin: 5px;"></div>
 </div>
-
 </div>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+let hasFired = false;
+const customColors = ['#00aa00', '#0066cc', '#111111', '#aaccff'];
+window.addEventListener("scroll", () => {
+const scrollPosition = window.innerHeight + window.scrollY;
+const pageHeight = document.documentElement.scrollHeight;
+if (scrollPosition >= pageHeight - 5 && !hasFired) {
+hasFired = true;
+confetti({particleCount: 100, angle: 60, spread: 60, origin: { x: 0, y: 0.85 }, colors: customColors});
+confetti({particleCount: 100, angle: 120, spread: 60, origin: { x: 1, y: 0.85 }, colors: customColors});
+setTimeout(() => { confetti({particleCount: 50, startVelocity: 15, spread: 360, origin: { x: 0.5, y: 0.4 }, colors: customColors}); }, 250);
+}
+});
+});
+</script>
 </body>
 </html>
 </html>
